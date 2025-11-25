@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SilkandSunsetz | SR Wilde Poetry</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2a2416;
+            line-height: 1.6;
+            background: #fdfbf7;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 197, 169, 0.3);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            font-weight: 500;
+            color: #2a2416;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2a2416;
+            font-weight: 300;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #c9a97a;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f9f6f0 0%, #f5ebe8 50%, #f0e6dc 100%);
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 197, 169, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 169, 122, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            font-weight: 500;
+            color: #2a2416;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8em;
+            font-style: italic;
+            color: #5a4a3a;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1em;
+            color: #6b5a4a;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 18px 45px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #2a2416;
+            color: #fdfbf7;
+            border: 2px solid #2a2416;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: #2a2416;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #2a2416;
+            border: 2px solid #2a2416;
+        }
+        
+        .btn-secondary:hover {
+            background: #2a2416;
+            color: #fdfbf7;
+        }
+        
+        .decorative-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a97a, transparent);
+            margin: 60px auto 20px;
+        }
+        
+        /* Introduction Section */
+        .intro-section {
+            padding: 100px 40px;
+            background: #fdfbf7;
+        }
+        
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .intro-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #2a2416;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .intro-content p {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #4a3a2a;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        /* Featured Poems Section */
+        .featured-poems {
+            padding: 100px 40px;
+            background: linear-gradient(180deg, #fdfbf7 0%, #f9f6f0 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #2a2416;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .section-header .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3em;
+            color: #6b5a4a;
+            font-style: italic;
+            font-weight: 300;
+        }
+        
+        .poems-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .poem-card {
+            background: #ffffff;
+            padding: 50px 40px;
+            border-radius: 2px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a97a, #d4c5a9);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .poem-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .poem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .poem-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            color: #2a2416;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .poem-excerpt {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #4a3a2a;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+        
+        .read-more {
+            color: #c9a97a;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+        
+        .read-more:hover {
+            gap: 15px;
+        }
+        
+        .read-more::after {
+            content: '→';
+            font-size: 1.2em;
+        }
+        
+        /* Collection Preview Section */
+        .collection-preview {
+            padding: 120px 40px;
+            background: #f5ebe8;
+            text-align: center;
+        }
+        
+        .collection-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .collection-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #2a2416;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .collection-content .book-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-style: italic;
+            color: #5a4a3a;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .collection-content p {
+            font-size: 1.2em;
+            line-height: 1.9;
+            color: #4a3a2a;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .collection-themes {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        
+        .theme {
+            text-align: center;
+        }
+        
+        .theme-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .theme h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            color: #2a2416;
+            margin-bottom: 10px;
+        }
+        
+        .theme p {
+            font-size: 0.95em;
+            color: #6b5a4a;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: #2a2416;
+            color: #f5ebe8;
+            text-align: center;
+        }
+        
+        footer .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        footer .logo {
+            color: #f5ebe8;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        footer p {
+            font-size: 0.95em;
+            color: #d4c5a9;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: #f5ebe8;
+            font-size: 1.3em;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #c9a97a;
+        }
+        
+        .copyright {
+            font-size: 0.85em;
+            color: #a89580;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 197, 169, 0.2);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .poems-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            
+            .hero .tagline {
+                font-size: 1.4em;
+            }
+            
+            .collection-themes {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            nav .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">SilkandSunsetz</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="writings.html">Writings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>SR Wilde</h1>
+            <div class="decorative-divider"></div>
+            <p class="tagline">Where heartbreak blooms into poetry</p>
+            <p class="subtitle">Love stories written in wildflowers and wounds</p>
+            <div class="cta-buttons">
+                <a href="writings.html" class="btn btn-primary">Read the Poems</a>
+                <a href="about.html" class="btn btn-secondary">About</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="intro-content">
+            <h2>Poetry for Everyone</h2>
+            <div class="decorative-divider"></div>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3em; font-style: italic; color: #5a4a3a; margin-bottom: 40px;">
+                For the wildflowers who bloom in the most unlikely of places—<br>
+                May you always be too much for anyone's small spaces
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Poems Section -->
+    <section class="featured-poems">
+        <div class="section-header">
+            <h2>Featured Poems</h2>
+        </div>
+        
+        <div class="poems-grid">
+            <!-- Poem Card 1 -->
+            <div class="poem-card">
+                <h3>I Think I'm Going to Miss You</h3>
+                <p class="poem-excerpt">
+                    "I think I'm going to miss you for the rest of my life. 
+                    Mostly when I can't sleep, or eat, or really every time, 
+                    when I'm trying to find a reason this all happened..."
+                </p>
+                <a href="writings.html#miss-you" class="read-more">Read Full Poem</a>
+            </div>
+            
+            <!-- Poem Card 2 -->
+            <div class="poem-card">
+                <h3>Bloom Anyway</h3>
+                <p class="poem-excerpt">
+                    "We don't bloom despite our wounds; we bloom through them. 
+                    The places where we've been broken become channels for new growth, 
+                    for deeper roots, and often for unexpected blooms..."
+                </p>
+                <a href="writings.html#bloom-anyway" class="read-more">Read Full Poem</a>
+            </div>
+            
+            <!-- Poem Card 3 -->
+            <div class="poem-card">
+                <h3>Steam</h3>
+                <p class="poem-excerpt">
+                    "We were water and fire from the start. His mother's smile never reached her eyes, 
+                    and his father spoke of family names—names that would never include mine..."
+                </p>
+                <a href="writings.html#steam" class="read-more">Read Full Poem</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Preview Section -->
+    <section class="collection-preview">
+        <div class="collection-content">
+            <h2>Bloom Anyway</h2>
+            <p class="book-title">A Poetry Collection</p>
+            <div class="decorative-divider"></div>
+            <p>
+                Poetry of love, loss, and becoming. These poems meet you where you are and remind you—you are not alone.
+            </p>
+            
+            <div class="collection-themes">
+                <div class="theme">
+                    <div class="theme-icon">🌱</div>
+                    <h3>Seeds & Storms</h3>
+                    <p>The lightning strikes<br>that change everything</p>
+                </div>
+                
+                <div class="theme">
+                    <div class="theme-icon">🌿</div>
+                    <h3>Rootbound & Droughts</h3>
+                    <p>The hard work<br>of healing</p>
+                </div>
+                
+                <div class="theme">
+                    <div class="theme-icon">🌸</div>
+                    <h3>Bloom Anyway</h3>
+                    <p>Rising, growing,<br>becoming</p>
+                </div>
+            </div>
+            
+            <a href="writings.html" class="btn btn-primary">Explore the Collection</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="logo">SilkandSunsetz</a>
+            <p>Poetry of love, loss, and learning to bloom anyway</p>
+            
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="/cdn-cgi/l/email-protection#45362c292e242b2136302b3f20313f052228242c296b262a28" aria-label="Email">✉️</a>
+            </div>
+            
+            <p class="copyright">
+                © 2025 SR Wilde. All rights reserved.
+            </
